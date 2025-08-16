@@ -83,7 +83,11 @@ function processSlot(slot){
           let horseName = match[2].trim().toUpperCase();
           let suffix = match[3];
           if(horseMarks[horseName]){
-            outputLines[i] = prefix + horseMarks[horseName] + "\t" + match[2] + suffix + lines[i].slice(match[0].length);
+            // normalize the tabs right before the horse name to exactly one
+              prefix = prefix.replace(/\t+$/, "\t");
+              if (!/\t$/.test(prefix)) prefix += "\t"; // ensure at least one tab
+              outputLines[i] = prefix + horseMarks[horseName] + "\t" + match[2] + suffix + lines[i].slice(match[0].length);
+
           }
         }
       }
@@ -150,3 +154,4 @@ setInterval(() => {
     current = next;
   }, 2000);
 }, 5000);
+
