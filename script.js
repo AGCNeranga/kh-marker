@@ -31,7 +31,7 @@ function clearAll(){
   }
 }
 
-// === Load file ===
+// === charith neranga Load file ===
 function loadFile(slot,event){
   const file = event.target.files[0];
   const nameSpan = document.getElementById('fileName'+slot);
@@ -154,4 +154,5 @@ setInterval(() => {
     current = next;
   }, 2000);
 }, 5000);
+
 
